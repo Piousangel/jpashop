@@ -18,6 +18,4 @@ public class JpashopApplication {
 		SpringApplication.run(JpashopApplication.class, args);
 	}
 
-
-
 }
