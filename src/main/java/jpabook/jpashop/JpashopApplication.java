@@ -3,7 +3,7 @@ package jpabook.jpashop;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication              //SpringBootApplication 어노테이션이 있으면 이 패키지, 패키지 하위까지 스프링이 컴포넌트 스캔을 한다 -> 스프링 빈으로 자동 등록해줌.
 public class JpashopApplication {
 
 	public static void main(String[] args) {
