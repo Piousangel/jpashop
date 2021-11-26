@@ -45,4 +45,7 @@
   - 상품을 카테고리로 구분할 수 있다.
   - 상품 주문시 배송 정보를 입력할 수 있다.
   
+  <img width="1006" alt="스크린샷 2021-11-26 오후 9 09 13" src="https://user-images.githubusercontent.com/55525574/143579083-fa181bf6-9ba0-4934-8b0c-14d3d98d527f.png">
   
+<img width="1008" alt="Category" src="https://user-images.githubusercontent.com/55525574/143579092-4753513d-72e0-4134-ad71-68f924093e53.png">
+
