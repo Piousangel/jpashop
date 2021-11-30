@@ -8,6 +8,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 @Getter @Setter
 public class Category {
@@ -18,26 +20,23 @@ public class Category {
 
     private String name;
 
-    //객체는 collection이 있어서 다대다 관계가 가능하지만 관계형 Database는 Collection관계를 양쪽으로 가질 수 없어서 Jointable을 해줘야한다.(일대다, 다대일로 풀어야).
     @ManyToMany
     @JoinTable(name = "category_item",
             joinColumns = @JoinColumn(name = "category_id"),
-            inverseJoinColumns = @JoinColumn(name = "item_id")
-    )
+            inverseJoinColumns = @JoinColumn(name = "item_id"))
     private List<Item> items = new ArrayList<>();
 
-
-    //self 로 양방향관계를 걸어놓는 작업.
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "parent_id")
     private Category parent;
 
     @OneToMany(mappedBy = "parent")
     private List<Category> child = new ArrayList<>();
 
-    //==연관관계편의메서드==//
-    public void addChildCategory(Category child){
+    //==연관관계 메서드==//
+    public void addChildCategory(Category child) {
         this.child.add(child);
         child.setParent(this);
     }
+
 }

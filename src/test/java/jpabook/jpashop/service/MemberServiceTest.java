@@ -6,38 +6,33 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import javax.persistence.EntityManager;
 
-@RunWith(SpringRunner.class)          //RunWith, SpringBootTest가 있어야 스프링과 integration(통합)해서 테스트가능.
+import static org.junit.Assert.*;
+
+@RunWith(SpringRunner.class)
 @SpringBootTest
-@Transactional   //데이터를 변경할 때 사용.
+@Transactional
 public class MemberServiceTest {
 
-    @Autowired
-    MemberService memberService;
-    @Autowired
-    MemberRepository memberRepository;
-//    @Autowired
-//    EntityManager em;
+    @Autowired MemberService memberService;
+    @Autowired MemberRepository memberRepository;
+    @Autowired EntityManager em;
 
     @Test
-    @Rollback(false)
     public void 회원가입() throws Exception {
         //given
         Member member = new Member();
         member.setName("kim");
 
         //when
-        Long saveId = memberService.join(member);
+        Long savedId = memberService.join(member);
 
         //then
-//        em.flush();
-        assertEquals(member, memberRepository.findOne(saveId));
+        assertEquals(member, memberRepository.findOne(savedId));
     }
 
     @Test(expected = IllegalStateException.class)
@@ -51,15 +46,7 @@ public class MemberServiceTest {
 
         //when
         memberService.join(member1);
-        memberService.join(member2);
-
-//        memberService.join(member1);
-//        try{
-//            memberService.join(member2);
-//        }catch (IllegalStateException e){
-//            return;
-//        }
-        //memberService.join(member2);   //예외가 발생해야한다!.
+        memberService.join(member2); //예외가 발생해야 한다!!!
 
         //then
         fail("예외가 발생해야 한다.");
