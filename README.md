@@ -50,3 +50,6 @@
 <img width="1008" alt="Category" src="https://user-images.githubusercontent.com/55525574/143579092-4753513d-72e0-4134-ad71-68f924093e53.png">
 
 <img width="685" alt="스크린샷 2021-11-26 오후 10 35 29" src="https://user-images.githubusercontent.com/55525574/143589112-511a1aae-3b3e-4b49-a4ff-5a9ea7e26614.png">
+
+<img width="802" alt="스크린샷 2021-12-03 오후 11 57 49" src="https://user-images.githubusercontent.com/55525574/144623671-ac40696e-dc9d-4a71-8fc7-8e2dc72d7822.png">
+
